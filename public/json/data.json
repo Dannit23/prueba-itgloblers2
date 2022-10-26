@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Avianca",
+        "Vuelos disponibles": 20,
+        "Precio": 500000
+    },
+
+    {
+        "id": 2,
+        "name": "Latam",
+        "Vuelos disponibles": 30,
+        "Precio": 450000
+    },
+
+    {
+        "id": 3,
+        "name": "Wingo",
+        "Vuelos disponibles": 15,
+        "Precio": 600000
+    },
+
+    {
+        "id": 4,
+        "name": "Vivaair",
+        "Vuelos disponibles": 23,
+        "Precio": 480000
+    },
+
+    {
+        "id": 5,
+        "Destination": "Cartagena",
+        "Hotels disponibles": 5,
+        "Precio": 250000
+    },
+
+    {
+        "id": 6,
+        "Destination": "Santa Marta",
+        "Hotels disponibles": 2,
+        "Precio": 390000
+    },
+
+    {
+        "id": 7,
+        "Destination": "Medellin",
+        "Hotels disponibles": 10,
+        "Precio": 415000
+    }
+]
