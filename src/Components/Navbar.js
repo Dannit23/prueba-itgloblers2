@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Navbar() {
+function Navbar({setDataAirline}) {
    
     const useSelect = () => {
         const [data, setData] = useState([])
@@ -18,16 +18,17 @@ function Navbar() {
     }
 
     const data = useSelect()
-
+      
     return (
         
             <div>
                 <ul>
                     <li><a href='#'>Inicio</a></li>
                     <li>
-                        <select> 
-                            {data.map((item, index) => (
-                            <option key={index} value={item.name}>{item.name}</option>
+                        <select onChange={e=>setDataAirline(e.target.value)}> 
+                            <option>Aerolineas</option>
+                            {data.map((item, ) => (
+                               <option key={item.name} value={item.name}>{item.name}</option>
                             ))}
                         </select>
                     </li>

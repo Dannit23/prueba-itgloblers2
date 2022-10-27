@@ -1,17 +1,32 @@
 import React from "react";
 import { useForm } from "react-hook-form"
+import swal from "sweetalert";
 import { edadValidator } from "./validators"
 
-function Form() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+
+
+function Form({ dataAirline, setDataAirline }) {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    
     const onSubmit = data => {
         console.log(data)
+        sweetAlert()
+        reset()
     };
+
+    const sweetAlert=()=>{
+        swal({
+            text: "Tu información fue enviada con éxito, estaremos en contacto contigo",
+            icon: "success",
+            timer: "5000"
+        })
+
+    }
 
     return(
         <div>
             <div>
-               <h2>Hola, bienvenido, sabemos que quieres viajar en un X (Donde X=Nombre del item del menú seleccionado), por favor diligencia el siguiente formulario:</h2>
+               <h2>Hola, bienvenido, sabemos que quieres viajar en un {dataAirline}, por favor diligencia el siguiente formulario:</h2>
             </div>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -41,7 +56,7 @@ function Form() {
                         validate: edadValidator})} placeholder='Ingresa tu edad'
                     />
                     {errors.edad?.type === 'required' && <p>El campo edad es requerido</p>}
-                    {errors.edad && <p>La edad debe estar entre 18 y 100</p>}
+                    {errors.edad && <p>La edad debe estar entre 18 y 100 años</p>}
                    
 
                     <input type="submit" value="Enviar"/>
