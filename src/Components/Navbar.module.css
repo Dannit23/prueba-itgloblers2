@@ -42,7 +42,11 @@
 }
 
 @media screen and (max-width:920px){
-    #navbar {
-        flex-flow: column nowrap;
+      
+    .navMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+    
 }
