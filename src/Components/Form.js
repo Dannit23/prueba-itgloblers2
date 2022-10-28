@@ -1,20 +1,35 @@
 import React from "react";
 import { useForm } from "react-hook-form"
+import swal from "sweetalert";
 import { edadValidator } from "./validators"
+import styles from "./Form.module.css";
 
-function Form() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+
+function Form({ dataAirline, setDataAirline }) {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    
     const onSubmit = data => {
         console.log(data)
+        sweetAlert()
+        reset()
     };
 
+    const sweetAlert=()=>{
+        swal({
+            text: "Tu información fue enviada con éxito, estaremos en contacto contigo",
+            icon: "success",
+            timer: "5000"
+        })
+
+    }
+
     return(
-        <div>
+        <div className={styles.container}>
             <div>
-               <h2>Hola, bienvenido, sabemos que quieres viajar en un X (Donde X=Nombre del item del menú seleccionado), por favor diligencia el siguiente formulario:</h2>
+               <h2 className={styles.text}>Hola, bienvenido, sabemos que quieres viajar en {dataAirline}, por favor diligencia el siguiente formulario:</h2>
             </div>
-            <div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.containerForm}>
+                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <input type="text" {...register('nombre', {
                         required: true,
                         pattern:  /^[A-Za-z]+$/i})} placeholder='Ingresa tu nombre'
@@ -41,10 +56,10 @@ function Form() {
                         validate: edadValidator})} placeholder='Ingresa tu edad'
                     />
                     {errors.edad?.type === 'required' && <p>El campo edad es requerido</p>}
-                    {errors.edad && <p>La edad debe estar entre 18 y 100</p>}
+                    {errors.edad && <p>La edad debe estar entre 18 y 100 años</p>}
                    
 
-                    <input type="submit" value="Enviar"/>
+                    <input className={styles.button} type="submit" value="Enviar"/>
                 </form>
             </div>
         </div>

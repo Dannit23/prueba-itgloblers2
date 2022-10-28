@@ -1,0 +1,14 @@
+.image{
+   display:block;
+   margin:auto;
+   margin-top: 10%;
+   margin-bottom: 10%;
+}
+
+@media screen and (max-width:920px){
+    
+    .image {
+      width: 100%;
+    }
+
+}
