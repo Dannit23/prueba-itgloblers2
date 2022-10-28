@@ -1,0 +1,48 @@
+#navbar {
+    width: 100%;
+    background-color: rgba(255, 175, 4, 0.712);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;  
+}
+
+
+.logo {
+  width: 35%;
+}
+
+.containerNav {
+    display: flex;
+}
+
+.navMenu {
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   gap: 7%;
+}
+
+.navItem {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 13pt;
+}
+
+#airlines {
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.navMenuItem {
+    padding-left: 5px;
+}
+
+@media screen and (max-width:920px){
+    #navbar {
+        flex-flow: column nowrap;
+    }
+}

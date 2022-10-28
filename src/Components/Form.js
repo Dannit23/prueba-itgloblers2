@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form"
 import swal from "sweetalert";
 import { edadValidator } from "./validators"
-
+import styles from "./Form.module.css";
 
 
 function Form({ dataAirline, setDataAirline }) {
@@ -24,12 +24,12 @@ function Form({ dataAirline, setDataAirline }) {
     }
 
     return(
-        <div>
+        <div className={styles.container}>
             <div>
-               <h2>Hola, bienvenido, sabemos que quieres viajar en un {dataAirline}, por favor diligencia el siguiente formulario:</h2>
+               <h2 className={styles.text}>Hola, bienvenido, sabemos que quieres viajar en {dataAirline}, por favor diligencia el siguiente formulario:</h2>
             </div>
-            <div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.containerForm}>
+                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <input type="text" {...register('nombre', {
                         required: true,
                         pattern:  /^[A-Za-z]+$/i})} placeholder='Ingresa tu nombre'
@@ -59,7 +59,7 @@ function Form({ dataAirline, setDataAirline }) {
                     {errors.edad && <p>La edad debe estar entre 18 y 100 años</p>}
                    
 
-                    <input type="submit" value="Enviar"/>
+                    <input className={styles.button} type="submit" value="Enviar"/>
                 </form>
             </div>
         </div>
